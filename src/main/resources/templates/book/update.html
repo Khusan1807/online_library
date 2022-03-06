@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Book update</title>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-10 mx-auto">
+            <form th:action="@{/book/update}" th:object="${book}" th:method="post"
+                  enctype="multipart/form-data">
+
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" th:value="*{name}"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="author">Author</label>
+                    <input type="text" class="form-control" id="author" name="author" th:value="*{author}"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" class="form-control" id="title" name="title" th:value="*{title}"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="price">Price</label>
+                    <input type="number" class="form-control" id="price" name="price" th:value="*{price}"/>
+                </div>
+
+
+                <button type="submit" class="btn btn-primary">➕ Save</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

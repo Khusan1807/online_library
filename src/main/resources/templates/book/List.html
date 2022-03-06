@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Book list</title>
+</head>
+<body>
+
+<div class="container ">
+    <div class="row">
+        <table class="table">
+            <thead class="thead-light">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Author</th>
+                <th scope="col">Title</th>
+                <th scope="col">Price</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="book,iter :  ${books}">
+                <th th:text="${iter.count}"></th>
+                <th th:text="${book.name}"></th>
+                <th th:text="${book.author}"></th>
+                <th th:text="${book.title}"></th>
+                <th th:text="${book.price}"></th>
+
+
+                <th class="icons d-flex justify-content-between">
+                    <a th:href="@{/book/delete/{id}(id=${book.id})}">
+                        <button class="btn btn-danger" >Delete</button>
+                    </a>
+                    <a th:href="@{/book/update/{id}(id=${book.id})}">
+                        <button class="btn btn-primary" >Update</button>
+                    </a>
+                </th>
+            </tr>
+            </tbody>
+        </table>
+        <button type="button" th:href="@{/book/create}" style="margin-left: 1000px;"
+                class="btn btn-primary" >
+            ➕
+        </button>
+    </div>
+</div>
+</body>
+</html>
